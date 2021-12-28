@@ -134,3 +134,24 @@ Posts Table <br>
   </tbody>
 </table>
 <br>
+
+PostDriver Table <br>
+<table>
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Data Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PostId</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>DriverId</td>
+      <td>int</td>
+    </tr>
+  </tbody>
+</table>
+<br>
