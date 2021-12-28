@@ -12,6 +12,46 @@ Email Service 📧
 <hr>
 <br>
 Tables📋<br>
+Users Table <br>
+<table>
+  <tr>
+  <td>Id</td>
+  <td>firstName</td>
+  <td>lastName</td>
+  <td>DateOfBirth</td>
+  <td>profilePhoto</td>
+  <td>Email</td>
+  <td>EmailConfirmed</td>
+  <td>PasswordHash</td>
+  <td>SecurityStamp</td>
+  <td>PhoneNumber</td>
+  <td>PhoneNumberConfirmed</td>
+  <td>TwoFactorEnabled</td>
+  <td>LockoutEndDateUtc</td>
+  <td>LockoutEnabled</td>
+  <td>AccessFailedCount</td>
+  <td>UserName</td>
+  <td>profileDescription</td>
+  </tr>
+</table>
+<br>
+
+Role Table <br>
+<table>
+  <tr>
+  <td>Id</td>
+  <td>Name</td>
+  </tr>
+</table>
+<br>
+UserRoles Table <br>
+<table>
+  <tr>
+  <td>UserId</td>
+  <td>RoleId</td>
+  </tr>
+</table>
+<br>
 
 Drivers Table <br>
 <table>
