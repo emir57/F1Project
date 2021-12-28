@@ -155,3 +155,24 @@ PostDriver Table <br>
   </tbody>
 </table>
 <br>
+
+PostTeam Table <br>
+<table>
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Data Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PostId</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>TeamId</td>
+      <td>int</td>
+    </tr>
+  </tbody>
+</table>
+<br>
