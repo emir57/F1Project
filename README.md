@@ -176,3 +176,28 @@ PostTeam Table <br>
   </tbody>
 </table>
 <br>
+
+Countries Table <br>
+<table>
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Data Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CountryId</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>CountryName</td>
+      <td>nvarchar(60)</td>
+    </tr>
+    <tr>
+      <td>CountryImageUrl</td>
+      <td>nvarchar(120)</td>
+    </tr>
+  </tbody>
+</table>
+<br>
