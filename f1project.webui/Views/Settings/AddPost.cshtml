@@ -1,0 +1,122 @@
+@model PostModel
+
+<link rel="stylesheet" href="/css/addpost.css">
+<div id="showImgsDiv">
+    <a id="closeBtn"><i class="fas fa-times"></i></a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model.Images)
+            {
+                <tr>
+                    <td><img src="/images/@i.FileName" width="100" alt=""></td>
+                    <input type="hidden" value="" name="" id="filename">
+                    <td><button class="btn btn-primary" onclick="copyLink('@i.FileName')"><i class="fas fa-copy"></i> Linki
+                            Kopyala</button></td>
+                    <script>
+                        function copy(filename){
+                            
+                            /* Copy the text inside the text field */
+                            navigator.clipboard.writeText(filename);
+                        }
+                        function copyLink(filename){
+                            
+                            /* Copy the text inside the text field */
+                            navigator.clipboard.writeText("/images/"+filename);
+                        }
+                    </script>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+<div id="showImgsBckgDiv">
+
+</div>
+
+<form asp-action="AddPost" asp-controller="Settings" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label class="form-label" id="title" asp-for="@Model.Title"></label>
+                    <input class="form-control" asp-for="@Model.Title">
+                    <span asp-validation-for="@Model.Title" class="text-danger"></span>
+                </div>
+                <hr>
+                <div class="col-md-12 mb-3">
+                    <img src="/images/@Model.ImageTitleUrl" width="200" alt="">
+                    <label class="form-label" asp-for="@Model.ImageTitleUrl"></label>
+                    <input class="form-control" type="file" accept="image/png, image/jpeg, image/jpg"
+                        name="ImageTitleUrl">
+                    <span asp-validation-for="@Model.ImageTitleUrl" class="text-danger"></span>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label class="form-label" asp-for="@Model.BodyText"></label>
+                    <br><br>
+
+                    <a id="showImgsBtn" class="btn btn-primary mb-1">Resimleri Görüntüle</a>
+                    
+                    <p>yukardaki butondan resimleri görebilirsiniz. Resim eklemek için resim linkini kopyalayıp
+                        <br><b>aşağıdaki editörden resim
+                            ikonuna tıklayarak url ile resimde ekleyebilirsiniz.</b></p>
+                    <textarea asp-for="@Model.BodyText" id="BodyText" cols="30" rows="10"></textarea>
+                    <span asp-validation-for="@Model.BodyText" class="text-danger"></span>
+                    <script>
+                        $(document).ready(function(){
+                            $("#createTag").click(function(){
+                                var tag = document.getElementById("totalTag");
+                                var tag2 = document.getElementById("title");
+                                
+                                
+                                navigator.clipboard.readText()
+                                    .then((text)=>{
+                                        if(text.startsWith("http")){alert("Lütfen linksiz kopyalayın")}
+                                        else{
+                                            navigator.clipboard.writeText(`<img href="${text}" width="" style="" class=""/>`)
+                                        }
+                                        
+                                    })
+                                
+                                
+                            })
+                        })
+                    </script>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Paylaş">
+</form>
+
+@section Scripts{
+<script src="/modules/ckeditor/ckeditor.js"></script>
+<script src="/modules/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+<script>
+    CKEDITOR.replace("BodyText")
+
+    $(document).ready(function () {
+        $("#showImgsBtn").click(function () {
+            $("#showImgsDiv").fadeIn();
+            $("#showImgsBckgDiv").delay(100).fadeIn();
+        })
+        $("#showImgsBckgDiv").click(function () {
+            $("#showImgsDiv").delay(100).fadeOut();
+            $("#showImgsBckgDiv").fadeOut();
+        })
+        $("#closeBtn").click(function () {
+            $("#showImgsDiv").delay(100).fadeOut();
+            $("#showImgsBckgDiv").fadeOut();
+        })
+    })
+</script>
+}

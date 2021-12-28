@@ -1,0 +1,55 @@
+<div class="@(ViewBag.message==null?"":ViewBag.alert)">
+    <p>@ViewBag.message</p>
+</div>
+
+@section RightBar{
+@await Html.PartialAsync("_Rightbar")
+}
+
+<div class="row">
+    <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a style="cursor: pointer;" id="btn1" class="list-group-item list-group-item-action" role="tab" aria-controls="list-home">Şifremi
+                Değiştir</a>
+
+            <a style="cursor: pointer;" id="btn2" class="list-group-item list-group-item-action">
+                Profil Ayarları</a>
+        </div>
+    </div>
+    <div id="settings" class="col-8">
+
+    </div>
+</div>
+@section Scripts{
+<script src="/modules/jquery/dist/jquery.min.js"></script>
+<script>
+    var btn1 = $("#btn1");
+    var btn2 = $("#btn2");
+    btn1.click(function () {
+        btn1.addClass("active");
+        btn2.removeClass("active");
+        $.ajax({
+            url:"/sifremidegistir",
+            method:"GET",
+            data:"html",
+            dataType:"html",
+            success:function(data){
+                $("#settings").empty().append(data);
+            }
+        })
+    })
+    btn2.click(function () {
+        btn2.addClass("active");
+        btn1.removeClass("active");
+        $.ajax({
+            url:"/profilayarları",
+            method:"GET",
+            data:"html",
+            dataType:"html",
+            success:function(data){
+                $("#settings").empty().append(data);
+            }
+        })
+    })
+</script>
+}

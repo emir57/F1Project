@@ -1,0 +1,37 @@
+@model List<Country>
+
+<div class="@(ViewBag.message==null?"":ViewBag.alert)">@ViewBag.message</div>
+
+<a class="btn btn-primary" href="/takimekle">Takım Ekle</a>
+<table id="countriesTable" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ülke Adı</th>
+            <th scope="col">Ülke Resmi</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr style="cursor:pointer;" title="Düzenlemek için tıkla {@t.CountryName}" onclick="location.href='/ülkeleridüzenle/@t.CountryId'">
+                <td>@t.CountryId</td>
+                <td>@t.CountryName</td>
+                <td><img src="/images/@t.CountryImageUrl" width="100" alt=""></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+<link rel="stylesheet" href="/modules/datatables.net-bs5/css/dataTables.bootstrap5.css">
+<script src="/modules/jquery/dist/jquery.min.js"></script>
+<script src="/modules/datatables.net/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#countriesTable').DataTable();
+    });
+</script>
+}

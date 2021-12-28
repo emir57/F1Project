@@ -1,0 +1,16 @@
+#adminpanelBTN {
+    color:red;
+}
+
+#adminpanelBTN:hover {
+    cursor: pointer;
+}
+
+#adminPanels {
+    display:none;
+    position:absolute;
+    z-index: 5;
+    width:auto;
+    background-color: white;
+    border:1px solid #EAEDED;
+}

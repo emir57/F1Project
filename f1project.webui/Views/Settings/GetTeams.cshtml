@@ -1,0 +1,42 @@
+@model List<F1Team>
+
+<div class="@(ViewBag.message==null?"":ViewBag.alert)">@ViewBag.message</div>
+
+<a class="btn btn-primary" href="/takimekle">Takım Ekle</a>
+<table id="teamsTable" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Takım Adı</th>
+            <th scope="col">Takım Kurucusu</th>
+            <th scope="col">Takım Kuruluş Tarihi</th>
+            <th scope="col">Takım Patronu</th>
+            <th scope="col">Takım Resmi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr style="cursor:pointer;" title="Düzenlemek için tıkla {@t.Name}" onclick="location.href='/takımlarıdüzenle/@t.TeamId'">
+                <td>@t.TeamId</td>
+                <td>@t.Name</td>
+                <td>@t.Founder</td>
+                <td>@t.FoundationYear</td>
+                <td>@t.TeamBoss</td>
+                <td><img src="/images/@t.TeamImageUrl" width="100" alt=""></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+<link rel="stylesheet" href="/modules/datatables.net-bs5/css/dataTables.bootstrap5.css">
+<script src="/modules/jquery/dist/jquery.min.js"></script>
+<script src="/modules/datatables.net/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#teamsTable').DataTable();
+    });
+</script>
+}

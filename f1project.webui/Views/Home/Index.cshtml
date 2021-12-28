@@ -1,0 +1,96 @@
+﻿@model List<Post>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="/css/index.css">
+
+@section RightBar{
+    @await Html.PartialAsync("_Rightbar")
+}
+
+
+<div class="text-center">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h1 class="display-4">Hoşgeldiniz @ViewBag.Name @ViewBag.Surname</h1>
+    }
+
+</div>
+@foreach (var a in Model)
+{
+    <div class="postdivs" id="div@(a.PostId)">
+        <a id="closeBtn@(a.PostId)" class="closeBtn"><i class="fas fa-times"></i></a>
+        <div align="center">
+            <img class="postImageTitle" src="/images/@a.ImageTitleUrl" />
+            <br>
+            <h4 class="display-4">@a.Title</h4>
+        </div>
+        <hr>
+        <div align="center">
+            @Html.Raw(@a.BodyText)
+        </div>
+    </div>
+
+    <div class="bckgdivs" id="bckgdiv@(a.PostId)">
+
+    </div>
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="/images/@a.ImageTitleUrl" class="img-fluid rounded-start" alt="@a.Title">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@a.Title</h5>
+                    @* @if(@a.BodyText.Length>40)
+                        {
+                        <p class="card-text">@Html.Raw(a.BodyText.Substring(0,39))...</p>
+                        }
+                        else
+                        {
+                        <p class="card-text">@Html.Raw(a.BodyText)...</p>href="/Haber/@a.PostId"
+                        } *@
+                    <p class="card-text"><a id="btn@(a.PostId)" class="btn btn-primary">Haberi Oku...</a></p>
+                    <p class="card-text"><small class="text-muted">@a.SharingDateTime.ToShortDateString()</small></p>
+                </div>
+                <script src="/modules/jquery/dist/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        $("#btn@(a.PostId)").click(function () {
+                            $("#div@(a.PostId)").delay(100).fadeIn();
+                            $("#bckgdiv@(a.PostId)").fadeIn();
+                        })
+                        $("#closeBtn@(a.PostId)").click(function () {
+                            $("#div@(a.PostId)").fadeOut();
+                            $("#bckgdiv@(a.PostId)").delay(100).fadeOut();
+                        })
+                        $("#bckgdiv@(a.PostId)").click(function () {
+                            $("#div@(a.PostId)").fadeOut();
+                            $("#bckgdiv@(a.PostId)").delay(100).fadeOut();
+                        })
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+@section Alerts{
+<div class="@(ViewBag.message==null?"":ViewBag.alert)" style="@(ViewBag.message==null?"display:none;":"")" role="alert">
+    Başarıyla Çıkış Yapıldı.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+}
+
+@section Styles
+{
+
+}
+
+@section Scripts
+{
+    
+}

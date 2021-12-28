@@ -1,0 +1,17 @@
+C:\Users\lolem\Desktop\F1Project\f1project.business\bin\Debug\net5.0\f1project.business.deps.json
+C:\Users\lolem\Desktop\F1Project\f1project.business\bin\Debug\net5.0\f1project.business.dll
+C:\Users\lolem\Desktop\F1Project\f1project.business\bin\Debug\net5.0\ref\f1project.business.dll
+C:\Users\lolem\Desktop\F1Project\f1project.business\bin\Debug\net5.0\f1project.business.pdb
+C:\Users\lolem\Desktop\F1Project\f1project.business\bin\Debug\net5.0\f1project.data.dll
+C:\Users\lolem\Desktop\F1Project\f1project.business\bin\Debug\net5.0\f1project.entity.dll
+C:\Users\lolem\Desktop\F1Project\f1project.business\bin\Debug\net5.0\f1project.entity.pdb
+C:\Users\lolem\Desktop\F1Project\f1project.business\bin\Debug\net5.0\f1project.data.pdb
+C:\Users\lolem\Desktop\F1Project\f1project.business\obj\Debug\net5.0\f1project.business.csproj.AssemblyReference.cache
+C:\Users\lolem\Desktop\F1Project\f1project.business\obj\Debug\net5.0\f1project.business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lolem\Desktop\F1Project\f1project.business\obj\Debug\net5.0\f1project.business.AssemblyInfoInputs.cache
+C:\Users\lolem\Desktop\F1Project\f1project.business\obj\Debug\net5.0\f1project.business.AssemblyInfo.cs
+C:\Users\lolem\Desktop\F1Project\f1project.business\obj\Debug\net5.0\f1project.business.csproj.CoreCompileInputs.cache
+C:\Users\lolem\Desktop\F1Project\f1project.business\obj\Debug\net5.0\f1project.business.csproj.CopyComplete
+C:\Users\lolem\Desktop\F1Project\f1project.business\obj\Debug\net5.0\f1project.business.dll
+C:\Users\lolem\Desktop\F1Project\f1project.business\obj\Debug\net5.0\ref\f1project.business.dll
+C:\Users\lolem\Desktop\F1Project\f1project.business\obj\Debug\net5.0\f1project.business.pdb

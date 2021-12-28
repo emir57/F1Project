@@ -1,0 +1,40 @@
+@model List<F1Driver>
+
+<div class="@(ViewBag.message==null?"":ViewBag.alert)">@ViewBag.message</div>
+
+<a class="btn btn-primary" href="/pilotekle">Pilot Ekle</a>
+
+<table id="driversTable" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fotoğrafı</th>
+            <th scope="col">Adı Ve Soyadı</th>
+            <th scope="col">Numarası</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr style="cursor:pointer;" title="Düzenlemek için tıkla {@p.DriverName @p.DriverSurname}" onclick="location.href='/pilotlarıdüzenle/@p.DriverId'">
+                <td>@p.DriverId</td>
+                <td><img src="/images/@p.DriverImageUrl" width="50"></td>
+                <td>@p.DriverName @p.DriverSurname</td>
+                <td><span class="badge bg-secondary">@p.DriverNumber</span></td>
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+<link rel="stylesheet" href="/modules/datatables.net-bs5/css/dataTables.bootstrap5.css">
+<script src="/modules/jquery/dist/jquery.min.js"></script>
+<script src="/modules/datatables.net/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#driversTable').DataTable();
+    });
+</script>
+}

@@ -1,0 +1,29 @@
+@model List<F1Team>
+
+@section RightBar{
+    @await Html.PartialAsync("_Rightbar")
+}
+
+<div class="row">
+    @foreach (var t in Model)
+    {
+        <div class="col">
+            <div class="card mb-3" id="@t.TeamId" style="width: 18rem;">
+                <img src="/images/@t.TeamImageUrl" class="card-img-top" width="" alt="@t.Name">
+                <div class="card-body">
+                    <h5 class="card-title">@t.Name</h5>
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Kurucusu <b>@t.Founder</b></li>
+                    <li class="list-group-item">Kuruluş Yılı <b>@t.FoundationYear.Year</b></li>
+                    <li class="list-group-item">Takım Kaptanı <b>@t.TeamBoss</b></li>
+                </ul>
+                <div class="card-body">
+                    <a href="/Takım/@t.TeamId" class="card-link">Sürücüler</a>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

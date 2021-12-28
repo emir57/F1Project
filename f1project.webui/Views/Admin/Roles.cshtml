@@ -1,0 +1,32 @@
+@model IQueryable<IdentityRole>
+
+
+<a class="btn btn-primary" href="/rolekle">Rol Ekle</a>
+<table id="rolesTable" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Rol Adı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr style="cursor:pointer;" title="Düzenlemek için tıkla {@t.Name}" onclick="location.href='/roller/@t.Name'">
+                <td>@t.Id</td>
+                <td>@t.Name</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+@section Scripts{
+<link rel="stylesheet" href="/modules/datatables.net-bs5/css/dataTables.bootstrap5.css">
+<script src="/modules/jquery/dist/jquery.min.js"></script>
+<script src="/modules/datatables.net/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#rolesTable').DataTable();
+    });
+</script>
+}

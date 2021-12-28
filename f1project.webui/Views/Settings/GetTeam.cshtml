@@ -1,0 +1,74 @@
+@model TeamViewModel
+
+<a href="/takımlarıdüzenle" class="btn btn-secondary">Geri Dön</a>
+<form asp-controller="Settings" asp-action="GetTeam" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="TeamImageUrl" value="@Model.TeamImageUrl">
+    <input type="hidden" asp-for="@Model.Id">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label asp-for="@Model.Name"></label><br>
+            <input asp-for="@Model.Name" class="form-control">
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="@Model.Founder"></label><br>
+            <input asp-for="@Model.Founder" class="form-control">
+            <span asp-validation-for="@Model.Founder" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label asp-for="@Model.FoundationYear"></label><br>
+            <input asp-for="@Model.FoundationYear" class="form-control">
+            <span asp-validation-for="@Model.FoundationYear" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="@Model.TeamBoss"></label><br>
+            <input asp-for="@Model.TeamBoss" class="form-control">
+            <span asp-validation-for="@Model.TeamBoss" class="text-danger"></span>
+        </div>
+    </div>
+    <img src="/images/@Model.TeamImageUrl" width="200" alt="">
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="file">Takım Resmi Yükle</label>
+        <input type="file" accept="image/jpg, image/jpeg, image/png" class="form-control" name="file" id="file">
+    </div>
+    <div class="row mb-3">
+
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="check" value="">
+                <label class="form-check-label" for="check">
+                    Değişiklikleri Onaylıyorum
+                </label>
+            </div>
+            <input type="submit" id="submitBtn" value="Değişiklikleri Kaydet" class="btn btn-primary">
+            <a asp-action="DeleteTeam" asp-controller="Settings" asp-route-id="@Model.Id" onclick="return confirm('Silmek istediğinizden eminmisiniz?')" class="btn btn-danger">Bu Takımı Sil</a>
+            
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+<script src="/modules/jquery/dist/jquery.js"></script>
+<script src="/modules/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+<script>
+    $(document).ready(function () {
+        var checkbox = $("#check");
+        var submitBtn = $("#submitBtn");
+        submitBtn.attr("Disabled", true);
+
+        checkbox.change(function(){
+            if(this.checked){
+                submitBtn.attr("disabled",false);
+            }else{
+                submitBtn.attr("disabled",true);
+            }
+        })
+
+    })
+</script>
+}

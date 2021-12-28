@@ -1,0 +1,18 @@
+@model RoleViewModel
+
+<a class="btn btn-secondary" href="/roller">Geri Dön</a>
+<h4 class="display-4">Rol Ekle</h4>
+<form asp-action="AddRole" asp-controller="Admin" method="post">
+    <div class="mb-3 col-md-6">
+        <label asp-for="@Model.Name" class="form-label"></label>
+        <input class="form-control" asp-for="@Model.Name">
+        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Ekle">
+</form>
+
+@section Scripts
+{
+<script src="/modules/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+}

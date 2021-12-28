@@ -1,0 +1,50 @@
+@model List<User>
+
+<div class="@(ViewBag.message==null?"":ViewBag.alert)">
+    <p>@ViewBag.message</p>
+</div>
+
+<a class="btn btn-primary" href="/roller">Roller</a>
+<div class="my-2">Epostası Onaylanmayanlar <div style="display:inline-block;width: 20px; height:20px;border-radius:50%;"
+        class="bg-warning"></div>
+</div>
+<table id="usersTable" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Adı</th>
+            <th scope="col">Soyadı</th>
+            <th scope="col">K.Adı</th>
+            <th scope="col">E-posta</th>
+            <th scope="col">Açıklama</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr class="@(t.EmailConfirmed==true?"":"bg-warning")" style="cursor:pointer;"
+            title="Düzenlemek için tıkla {@t.UserName}" onclick="location.href='/kullanıcılarıdüzenle/@t.Id'">
+                <td>@t.Id</td>
+                <td>@t.FirstName</td>
+                <td>@t.LastName</td>
+                <td>@t.UserName</td>
+                <td>@t.Email</td>
+                <td>@t.ProfileDescription</td>
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+<link rel="stylesheet" href="/modules/datatables.net-bs5/css/dataTables.bootstrap5.css">
+<script src="/modules/jquery/dist/jquery.min.js"></script>
+<script src="/modules/datatables.net/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#usersTable').DataTable();
+    });
+</script>
+}

@@ -1,0 +1,51 @@
+@model RoleViewModel
+
+<div class="@(ViewBag.message==null?"":"alert alert-success")">@ViewBag.message</div>
+
+<a class="btn btn-secondary" href="/roller">Geri Dön</a>
+<a class="btn btn-danger" href="/"><i class="fas fa-trash"></i></a>
+<h4 class="display-4">Rolü Düzenle</h4>
+<hr>
+<form asp-action="GetRole" asp-controller="Admin" method="post">
+    <div class="mb-3 col-md-6">
+        <label asp-for="@Model.Name" class="form-label"></label>
+        <input class="form-control" asp-for="@Model.Name">
+        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Kaydet">
+</form>
+<h3 class="display-4">Roldeki Kullanıcılar</h3>
+<br>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Adı</th>
+            <th scope="col">Soyadı</th>
+            <th scope="col">K.Adı</th>
+            <th scope="col">E-posta</th>
+            <th scope="col">Açıklama</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model.Users)
+        {
+            <tr class="@(t.EmailConfirmed==true?"":"bg-warning")" style="cursor:pointer;" title="Düzenlemek için tıkla {@t.UserName}" onclick="location.href='/kullanıcılarıdüzenle/@t.Id'">
+                <td>@t.Id</td>
+                <td>@t.FirstName</td>
+                <td>@t.LastName</td>
+                <td>@t.UserName</td>
+                <td>@t.Email</td>
+                <td>@t.ProfileDescription</td>
+                
+            </tr>
+
+        }
+    </tbody>
+</table>
+@section Scripts
+{
+<script src="/modules/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+}

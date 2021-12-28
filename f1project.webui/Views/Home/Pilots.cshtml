@@ -1,0 +1,27 @@
+@model List<F1Driver>
+
+@section RightBar{
+    @await Html.PartialAsync("_Rightbar")
+}
+<div class="row">
+    @foreach (var p in Model)
+    {
+        <div class="col">
+            <div class="card mb-3" id="@p.DriverName@p.DriverSurname" style="width: 18rem;">
+                <img src="/images/@p.DriverImageUrl" width="" alt="@p.DriverName">
+                <div class="card-body">
+                    <h5 class="card-title">@p.DriverName @p.DriverSurname <span class="badge bg-secondary">@p.DriverNumber</span></h5>
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><img width="50" src="/images/@p.Country.CountryImageUrl" alt=""> <b>@p.Country.CountryName</b></li>
+                    <li class="list-group-item">Doğum Tarihi <b>@p.DateOfBirth.ToShortDateString() (@(DateTime.Now.Year-p.DateOfBirth.Year) yaşında)</b></li>
+                    <li class="list-group-item">Takımı <b><a href="/Takım#@p.TeamId">@p.Team.Name</a></b> <img width="50" src="/images/@p.Team.TeamImageUrl" alt=""> </li>
+                </ul>
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+    }
+</div>

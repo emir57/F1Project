@@ -1,0 +1,54 @@
+@model F1Team
+
+<a href="/takımlarıdüzenle" class="btn btn-secondary">Geri Dön</a>
+<form asp-controller="Settings" asp-action="AddTeam" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="@Model.TeamId">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label asp-for="@Model.Name"></label><br>
+            <input asp-for="@Model.Name" class="form-control">
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="@Model.Founder"></label><br>
+            <input asp-for="@Model.Founder" class="form-control">
+            <span asp-validation-for="@Model.Founder" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label asp-for="@Model.FoundationYear"></label><br>
+            <input asp-for="@Model.FoundationYear" class="form-control">
+            <span asp-validation-for="@Model.FoundationYear" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="@Model.TeamBoss"></label><br>
+            <input asp-for="@Model.TeamBoss" class="form-control">
+            <span asp-validation-for="@Model.TeamBoss" class="text-danger"></span>
+        </div>
+    </div>
+    <img src="/images/@Model.TeamImageUrl" width="200" alt="">
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="file">Takım Resmi Yükle</label>
+        <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control" name="file" id="file">
+    </div>
+    <div class="row mb-3">
+
+        <div class="col-md-6">
+            
+            <input type="submit" id="submitBtn" value="Değişiklikleri Kaydet" class="btn btn-primary">
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+<script src="/modules/jquery/dist/jquery.js"></script>
+<script src="/modules/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+<script>
+   
+</script>
+}

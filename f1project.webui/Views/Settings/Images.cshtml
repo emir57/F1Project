@@ -1,0 +1,40 @@
+@model List<FileModel>
+
+<div class="@(ViewBag.message==null?"":ViewBag.alert)">@ViewBag.message</div>
+
+<form asp-action="Images" asp-controller="Settings" enctype="multipart/form-data">
+    <input type="file" accept="image/jpg, image/png, image/jpeg" required class="form-control" name="file" id="">
+    <input type="submit" class="btn btn-primary mt-1" value="Resmi Yükle">
+</form>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fotoğraf İsmi</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td style="cursor:pointer;" onclick="location.href='/images/@f.FileName'"><img src="/images/@f.FileName" width="100" alt=""></td>
+                <td>@f.FileName</td>
+                <td>
+                    <a onclick="return confirm('silmek istediğinizden eminmisiniz?')" href=@Url.Action("DeleteImage","Settings",new{name=@f.FileName})><i class="fas fa-trash-alt"></i></a>
+                    <a target="_blank" title="gerçek boyutuyla görüntüle" href="/images/@f.FileName"><i class="fas fa-search"></i></a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+<script src="/modules/ckeditor/ckeditor.js"></script>
+<script src="/modules/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+
+}

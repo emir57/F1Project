@@ -1,0 +1,59 @@
+.postdivs{
+    padding-top: 2%;
+    display: none;
+    z-index: 100;
+    position: fixed;
+    left:5%;
+    right: auto;
+    width:90%;
+    top: 5%;
+    height: 90%;
+    overflow:auto;
+    background-color: white;
+    border-radius: 10px;
+}
+.bckgdivs{
+    display: none;
+    z-index: 99;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color:RGBA(0,0,0,0.6);
+}
+.closeBtn{
+    z-index: 100;
+    position: fixed;
+    right: 10px;
+    top: 0;
+    
+    color:#A6ACAF;
+    font-size: xx-large;
+    transition: color 0.4s;
+}
+.closeBtn:hover{
+    color:#273746;
+
+}
+@media screen and (max-width:767px) {
+    .postImageTitle{
+        width: 300px;
+    }
+}
+@media screen and (min-width:768px) {
+    .postImageTitle{
+        width: 450px;
+    }
+}
+@media screen and (min-width:992px) {
+    .postImageTitle{
+        width: 500px;
+    }
+}
+@media screen and (min-width:1200px) {
+    .postImageTitle{
+        width: 500px;
+    }
+}
+

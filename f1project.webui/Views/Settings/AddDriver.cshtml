@@ -1,0 +1,78 @@
+@model F1Driver
+
+<div class="@(ViewBag.message==null?"":ViewBag.alert)"><p>@ViewBag.message</p></div>
+
+<a href="/pilotlarıdüzenle" class="btn btn-secondary">Geri Dön</a>
+<form asp-action="AddDriver" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label asp-for="@Model.DriverName"></label><br>
+            <input asp-for="@Model.DriverName" class="form-control">
+            <span asp-validation-for="@Model.DriverName" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="@Model.DriverSurname"></label><br>
+            <input asp-for="@Model.DriverSurname" class="form-control">
+            <span asp-validation-for="@Model.DriverSurname" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label asp-for="@Model.DriverNumber"></label><br>
+            <input asp-for="@Model.DriverNumber" class="form-control">
+            <span asp-validation-for="@Model.DriverNumber" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="@Model.TeamId"></label><br>
+            <select asp-for="@Model.TeamId" class="form-control">
+                @foreach (var t in ViewBag.teams)
+                {
+                    <option value="@t.TeamId">@t.Name</option>
+                }
+            </select>
+            <span asp-validation-for="@Model.TeamId" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="@Model.CountryId"></label><br>
+            <select asp-for="@Model.CountryId" class="form-control">
+                @foreach (var c in ViewBag.countries)
+                {
+                    <option value="@c.CountryId">@c.CountryName </option>
+                }
+            </select>
+            <span asp-validation-for="@Model.CountryId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label asp-for="@Model.DateOfBirth"></label><br>
+            <input asp-for="@Model.DateOfBirth" class="form-control">
+            <span asp-validation-for="@Model.DateOfBirth" class="text-danger"></span>
+        </div>
+    </div>
+    <img src="/images/@Model.DriverImageUrl" width="200" alt="">
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="file">Sürücü Resmi Yükle</label>
+        <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control" name="file" id="file">
+    </div>
+
+    <div class="row mb-3">
+
+        <div class="col-md-6">
+            <input type="submit" id="submitBtn" value="Değişiklikleri Kaydet" class="btn btn-primary">
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts
+{
+<script src="/modules/jquery/dist/jquery.js"></script>
+<script src="/modules/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+<script>
+    
+</script>
+}

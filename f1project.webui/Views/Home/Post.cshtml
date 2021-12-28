@@ -1,0 +1,11 @@
+@model Post
+
+<div align="center">
+    <img class="" width="500" src="/images/@Model.ImageTitleUrl"/>
+    <br>
+    <h4 class="display-4">@Model.Title</h4>
+</div>
+<hr>
+<div align="center">
+    @Html.Raw(@Model.BodyText)
+</div>

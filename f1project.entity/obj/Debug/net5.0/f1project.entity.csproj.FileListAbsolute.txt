@@ -1,0 +1,12 @@
+C:\Users\lolem\Desktop\F1Project\f1project.entity\bin\Debug\net5.0\f1project.entity.deps.json
+C:\Users\lolem\Desktop\F1Project\f1project.entity\bin\Debug\net5.0\f1project.entity.dll
+C:\Users\lolem\Desktop\F1Project\f1project.entity\bin\Debug\net5.0\ref\f1project.entity.dll
+C:\Users\lolem\Desktop\F1Project\f1project.entity\bin\Debug\net5.0\f1project.entity.pdb
+C:\Users\lolem\Desktop\F1Project\f1project.entity\obj\Debug\net5.0\f1project.entity.csproj.AssemblyReference.cache
+C:\Users\lolem\Desktop\F1Project\f1project.entity\obj\Debug\net5.0\f1project.entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lolem\Desktop\F1Project\f1project.entity\obj\Debug\net5.0\f1project.entity.AssemblyInfoInputs.cache
+C:\Users\lolem\Desktop\F1Project\f1project.entity\obj\Debug\net5.0\f1project.entity.AssemblyInfo.cs
+C:\Users\lolem\Desktop\F1Project\f1project.entity\obj\Debug\net5.0\f1project.entity.csproj.CoreCompileInputs.cache
+C:\Users\lolem\Desktop\F1Project\f1project.entity\obj\Debug\net5.0\f1project.entity.dll
+C:\Users\lolem\Desktop\F1Project\f1project.entity\obj\Debug\net5.0\ref\f1project.entity.dll
+C:\Users\lolem\Desktop\F1Project\f1project.entity\obj\Debug\net5.0\f1project.entity.pdb

@@ -1,0 +1,45 @@
+@model LoginViewModel
+@{
+    var returnUrl = @Context.Request.Query["returnUrl"];
+}
+<div class="@(ViewBag.message==null?"":ViewBag.alert)"><p>@ViewBag.message</p></div>
+<link rel="stylesheet" href="/css/login.css">
+
+<h4 class="display-4">Giriş Yap</h4>
+
+<form class="needs-validation" asp-controller="Account" asp-action="Login" novalidate>
+    <div class="row">
+        <input type="hidden" name="returnUrl" value="@returnUrl">
+        <div class="col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="@Model.Email" class="form-label">Eposta Adresi</label>
+                <input class="form-control" asp-for="@Model.Email">
+                <span asp-validation-for="@Model.Email" class="form-text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Password" class="form-label"></label>
+                <input class="form-control" asp-for="@Model.Password">
+                <span asp-validation-for="@Model.Password" class="form-text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Giriş Yap</button>
+            </div>
+            <div class="mb-3">
+                <a href="/kayıtol">Hesabın Yok mu? Kayıt Ol</a>
+            </div>
+            <div class="mb-3">
+                <a href="/şifremiunuttum">Şifremi Unuttum</a>
+            </div>
+            
+            
+        </div>
+    </div>
+
+</form>
+
+
+@section Scripts{
+<script src="/modules/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+}

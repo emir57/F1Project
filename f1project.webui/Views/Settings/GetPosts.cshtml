@@ -1,0 +1,42 @@
+@model List<Post>
+
+
+<div class="@(ViewBag.message==null?"":ViewBag.alert)">@ViewBag.message</div>
+
+<a class="btn btn-primary" href="/postpaylaş">Post Paylaş</a>
+
+<table id="postsTable" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Başlık Resmi</th>
+            <th scope="col">Haber İçeriği</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr style="cursor:pointer;" title="Düzenlemek için tıkla {@p.Title}"
+            onclick="location.href='/postlarıdüzenle/@p.PostId'">
+                <td>@p.PostId</td>
+                <td>@p.Title</td>
+                <td><img src="/images/@p.ImageTitleUrl" width="150"></td>
+                <td>-</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+@section Scripts{
+<link rel="stylesheet" href="/modules/datatables.net-bs5/css/dataTables.bootstrap5.css">
+<script src="/modules/jquery/dist/jquery.min.js"></script>
+<script src="/modules/datatables.net/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#postsTable').DataTable();
+    });
+</script>
+}
